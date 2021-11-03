@@ -279,3 +279,4 @@ function getContributionStats(array $contributions): array
     }
     return $stats;
 }
+
