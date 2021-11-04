@@ -16,10 +16,10 @@ function getContributionGraphs(string $user): array
     // build a list of individual requests
     $requests = array();
     foreach ($contributionYears as $year) {
-        // create query for year
-        // echo gmdate('Y-m-d H:i:s', strtotime('2011-10-27T20:23:39 America/Chicago'));
-        $start = "$year-01-01T00:00:00 America/Chicago";
-        $end = "$year-12-31T23:59:59 America/Chicago";
+        // create query for year, using -6 hours to match México City Timezone
+        $year2 = $year-1
+        $start = "$year2-12-31T18:00:00Z";
+        $end = "$year-12-31T17:59:59Z";
         $query = "query {
             user(login: \"$user\") {
                 contributionsCollection(from: \"$start\", to: \"$end\") {
