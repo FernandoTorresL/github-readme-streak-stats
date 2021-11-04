@@ -17,8 +17,9 @@ function getContributionGraphs(string $user): array
     $requests = array();
     foreach ($contributionYears as $year) {
         // create query for year
-        $start = "$year-01-01T00:00:00Z";
-        $end = "$year-12-31T23:59:59Z";
+        // echo gmdate('Y-m-d H:i:s', strtotime('2011-10-27T20:23:39 America/Chicago'));
+        $start = "$year-01-01T00:00:00 America/Chicago";
+        $end = "$year-12-31T23:59:59 America/Chicago";
         $query = "query {
             user(login: \"$user\") {
                 contributionsCollection(from: \"$start\", to: \"$end\") {
