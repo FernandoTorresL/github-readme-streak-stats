@@ -17,7 +17,7 @@ function getContributionGraphs(string $user): array
     $requests = array();
     foreach ($contributionYears as $year) {
         // create query for year, using -6 hours to match México City Timezone
-        $year2 = $year-1
+        $year2 = $year-1;
         $start = "$year2-12-31T18:00:00Z";
         $end = "$year-12-31T17:59:59Z";
         $query = "query {
